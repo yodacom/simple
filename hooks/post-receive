@@ -1,0 +1,7 @@
+#!/bin/sh
+forever stop index.js
+git --work-tree=/root/node/simple --git-dir=/root/git/simple.git checkout -f
+cp /root/node/config/simple_configuration.js /root/node/simple/configuration.js
+cd /root/node/simple
+npm install
+forever start  -o logfile.out -e logerror.out index.js
